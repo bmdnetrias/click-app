@@ -2,6 +2,10 @@
 
 Cookiecutter template for creating new Click command-line tools.
 
+_Forked from [Simon Willison’s
+`click-app`](https://github.com/simonw/click-app.git) for customizations
+with BMD specifics.
+
 ## Installation
 
 You'll need to have [cookiecutter](https://cookiecutter.readthedocs.io/) installed. I recommend pipx for this:
