@@ -1,6 +1,8 @@
 # click-app cookiecutter template
 
-Cookiecutter template for creating new Click command-line tools.
+Cookiecutter template for creating new [Click](https://click.palletsprojects.com/) command-line tools.
+
+Use this template on your own machine with cookiecutter, or create a brand new repository based on this template entirely through the GitHub web interface using [click-app-template-repository](https://github.com/simonw/click-app-template-repository).
 
 _Forked from [Simon Willison’s
 `click-app`](https://github.com/simonw/click-app.git) for customizations
@@ -37,7 +39,7 @@ If your tool is called `my-new-tool`, you can start working on it like so:
 
     cd my-new-tool
     # Create and activate a virtual environment:
-    python3 -mvenv venv
+    python3 -m venv venv
     source venv/bin/activate
     # Install dependencies so you can edit the project:
     pip install -e '.[test]'
