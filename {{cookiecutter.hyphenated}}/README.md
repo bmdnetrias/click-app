@@ -11,11 +11,17 @@
 
 Install this tool using `pip`:
 
-    $ pip install {{ cookiecutter.hyphenated }}
+    pip install {{ cookiecutter.hyphenated }}
 
 ## Usage
 
-Usage instructions go here.
+For help, run:
+
+    {{ cookiecutter.hyphenated }} --help
+
+You can also use:
+
+    python -m {{ cookiecutter.underscored }} --help
 
 ## Development
 
