@@ -27,14 +27,14 @@ Three examples of tools that were initially created using this template:
 
 ## Usage
 
-Run `cookiecutter gh:bmdmc/click-app` and then answer the prompts. Here's an example run:
+Run `cookiecutter gh:crossjam/click-app` and then answer the prompts. Here's an example run:
 
-    $ cookiecutter gh:bmdmc/click-app
+    $ cookiecutter gh:crossjam/click-app
     app_name []: click app template demo
-    description []: Demonstrating https://github.com/bmdmc/click-app
+    description []: Demonstrating https://github.com/crossjam/click-app
     hyphenated [click-app-template-demo]: 
     underscored [click_app_template_demo]: 
-    github_username []: bmdmc
+    github_username []: crossjam
     author_name []: Brian M. Dennis
 
 I strongly recommend accepting the suggested value for "hyphenated" and "underscored" by hitting enter on those prompts.
