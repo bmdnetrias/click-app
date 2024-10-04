@@ -2,10 +2,11 @@ import logging
 
 import click
 
+from click_default_group import DefaultGroup
 from .logconfig import DEFAULT_LOG_FORMAT, logging_config
 
 
-@click.group()
+@click.group(cls=DefaultGroup, default="about", default_if_no_args=True)
 @click.version_option()
 @click.option(
     "--log-format",
@@ -28,10 +29,10 @@ def cli(log_format, log_level, log_file):
     logging_config(log_format, log_level, log_file)
 
 
-@cli.command(name="command")
-@click.argument("example")
-def first_command(example):
-    "Command description goes here"
+@cli.command(name="about")
+@click.argument()
+def about():
+    "{{ cookiecutter.description }}"
 
     click.echo("Here is some output")
     logging.info("Here's some log output")
