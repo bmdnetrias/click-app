@@ -5,12 +5,13 @@ description = "{{ cookiecutter.description or "" }}"
 readme = "README.md"
 authors = [{name = "{{ cookiecutter.author_name }}"}]
 license = {text = "Apache-2.0"}
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 classifiers = [
     "License :: OSI Approved :: Apache Software License"
 ]
 dependencies = [
-    "click"
+    "click",
+    "loguru"
 ]
 {% if cookiecutter.github_username %}
 [project.urls]
@@ -24,3 +25,35 @@ CI = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.hyph
 
 [project.optional-dependencies]
 test = ["pytest"]
+
+[tool.ruff]
+line-length = 120
+exclude = ["*.ipynb"]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff.lint.mccabe]
+# Complexity (C901) errors are based on the number of conditional statements, loops, and nested structures within a
+# function. High complexity makes code harder to maintain and test. This setting adjusts the acceptable threshold.
+max-complexity = 30  # Default is 10
+
+[tool.ruff.lint]
+select = [
+    "E", # Pycodestyle errors
+    "F", # Pyflakes
+    "I", # Import order
+    "C", # Pylint convention messages
+    "R", # Pylint refactor messages
+    "W", # Pylint warning messages
+    "E", # Pylint error messages
+]
+
+ignore = [
+    "F601", # Ignore dictionary key literal repeated warning
+    "I001", # Ignore import block is un-sorted or un-formatted
+    "W293", # Ignore whitespace warning
+]
