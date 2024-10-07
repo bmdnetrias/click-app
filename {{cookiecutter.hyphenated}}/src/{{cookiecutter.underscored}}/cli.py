@@ -1,4 +1,4 @@
-import logging
+from pathlib import Path
 
 import click
 
@@ -15,24 +15,30 @@ from .logconfig import DEFAULT_LOG_FORMAT, logging_config
     help="Python logging format string",
 )
 @click.option(
-    "--log-level", default="ERROR", help="Python logging level", show_default=True
+    "--log-level", default="SUCCESS", help="Python logging level", show_default=True
 )
 @click.option(
     "--log-file",
     help="Python log output file",
-    type=click.Path(dir_okay=False, writable=True, resolve_path=True),
+    type=click.Path(dir_okay=False, writable=True, resolve_path=True, path_type=Path),
     default=None,
 )
-def cli(log_format, log_level, log_file):
+@click.pass_context
+def cli(ctx, log_format, log_level, log_file):
     "{{ cookiecutter.description }}"
 
-    logging_config(log_format, log_level, log_file)
+    ctx.ensure_object(dict)
+
+    ctx.obj["logger"] = logging_config(log_format, log_level, log_file)
+    ctx.obj["logger"].enable("{{ cookiecutter.underscored }}")
 
 
 @cli.command(name="about")
-@click.argument()
-def about():
-    "{{ cookiecutter.description }}"
+@click.pass_context
+def about(ctx):
+    """{{ cookiecutter.description }}
+    """
 
-    click.echo("Here is some output")
-    logging.info("Here's some log output")
+    logger = ctx.obj["logger"]
+    
+    logger.opt(colors=True).msg("<g>Here's some log output</g>")
