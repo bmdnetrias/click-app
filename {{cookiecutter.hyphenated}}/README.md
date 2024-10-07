@@ -10,9 +10,31 @@
 
 ## Installation
 
-Install this tool using `pip`:
+Install this tool using a standard virtual environment:
+
+	$ git clone git@github.com:{{ cookiecutter.github_username }}/{{ cookiecutter.underscored }}
+	$ python3 -m venv .{{ cookiecutter.underscored }}
+	$ source .{{ cookiecutter.underscored }}/bin/activate
+	(.{{ cookiecutter.underscored }}) $ pip3 install --upgrade -e ./{{ cookiecutter.underscored }} pip
+	(.{{ cookiecutter.underscored }}) $ {{ cookiecutter.underscored }}
 
     pip install {{ cookiecutter.hyphenated }}
+	
+Using `pipx`
+
+	# https://pipx.pypa.io/stable/installation/
+	$ brew install pipx
+	$ pipx ensurepath
+    $ pipx install "{{ cookiecutter.underscored }} @ git+ssh://git@github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.underscored }}" 
+	$ {{ cookiecutter.hyphenated }}
+	
+Using `uv`
+
+    # https://docs.astral.sh/uv/getting-started/installation/
+    $ brew install uv
+    $ uv tool install "{{ cookiecutter.underscored }} @ git+ssh://git@github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.underscored }}"
+	$ {{ cookiecutter.hyphenated }}
+	
 
 ## Usage
 
