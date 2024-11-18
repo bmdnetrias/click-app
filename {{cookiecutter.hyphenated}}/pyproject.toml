@@ -11,9 +11,9 @@ classifiers = [
 ]
 dependencies = [
     "click",
-    "loguru",
     "click-default-group",
     "click_spinner",
+    "loguru",
 ]
 {% if cookiecutter.github_username %}
 [project.urls]
